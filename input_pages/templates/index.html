@@ -19,13 +19,13 @@
             <hr>
             <button type="submit" name="input">Input</input>
             <button type="button" id="buttonAddForm" >Add a new field</button>
-            <button type="button" id="removeForm">Delete field</button>
+            <button type="button" id="buttonDelForm">Delete a field</button>
         </form>
 
     <div id='empty-input' class='hidden'>{{formset.empty_form}}</div>
-    <div id='total-formsets' class='hidden'>{{formset.total_form_count}}</div>
 
     <script>
         addForm();
+        deleteForm();
     </script>
 {% endblock content %}
