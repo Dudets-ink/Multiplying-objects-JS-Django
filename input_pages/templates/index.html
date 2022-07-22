@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <script type="text/javascript" src="{% static 'index.js' %}"></script>
 
+    <h1 align='center'>Welcome to Input Clicker!</h1>
+
     <form method="POST">
         {% csrf_token %}
         {{ formset.management_form }}
@@ -20,6 +22,7 @@
             <button type="submit" name="input">Input</input>
             <button type="button" id="buttonAddForm" >Add a new field</button>
             <button type="button" id="buttonDelForm">Delete a field</button>
+            <a href='{% url "saved_text" %}'>Show all entry's</a>
         </form>
 
     <div id='empty-input' class='hidden'>{{formset.empty_form}}</div>

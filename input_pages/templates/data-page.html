@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content%}
+    <h1 align='center'>All entries</h1>
+    <a href={% url 'index' %}>Go back</a>
+
+    {% for number, value in  entries.items %}
+        <p align='center'>Entry №{{number}}</p>
+        {% for note in value %}
+            <p align='center'>{{note}}</p>
+        {% endfor %}
+        <hr>
+    {% endfor %}  
+{% endblock content%}

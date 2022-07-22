@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
-from .forms import InputForm, InputFormset
+from django.shortcuts import get_object_or_404, render, redirect
+import json
+from .forms import InputFormset
 from .models import DataModel
 # Create your views here.
 
@@ -26,3 +27,24 @@ def index(request):
     context = {'formset': formset}
 
     return render(request, 'index.html', context)
+
+def saved_text(request):
+    """"""
+    
+    database = DataModel.objects.all()
+
+
+    number = 0
+    entries = {}
+    for table in database:
+        number += 1
+        entries[str(number)] = []
+        for value in table.data.values():
+            print(entries)
+            entries[str(number)] += [value]
+            
+    context = {'entries': entries}
+    
+    return render(request, 'data-page.html', context)
+
+    
