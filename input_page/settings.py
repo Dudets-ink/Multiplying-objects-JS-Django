@@ -32,9 +32,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # мои приложения
+    # my apps
     'input_pages',
-
+    
+    # bootstrap
+    'bootstrap5',
+    
     # приложения django
     'django.contrib.admin',
     'django.contrib.auth',

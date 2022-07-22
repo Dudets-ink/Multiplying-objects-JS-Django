@@ -2,13 +2,23 @@
 
 {% block content%}
     <h1 align='center'>All entries</h1>
-    <a href={% url 'index' %}>Go back</a>
+    <a href={% url 'index' %} class='btn btn-primary'>Go back</a>
 
-    {% for number, value in  entries.items %}
-        <p align='center'>Entry №{{number}}</p>
-        {% for note in value %}
-            <p align='center'>{{note}}</p>
-        {% endfor %}
-        <hr>
-    {% endfor %}  
+    <div class='d-flex justify-content-center'>
+        <div style='width:40%'>
+        {% for number, value in  entries.items %}
+            <div class='card text-center mb-3' >
+                <div class='card-header'>
+                    <h5 >Entry №{{number}}</h5>
+                </div>
+                <div class='card-body'>
+                    {% for note in value %}
+                        <p >{{note}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}  
+        </div>
+    </div>
+
 {% endblock content%}

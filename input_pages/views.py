@@ -10,7 +10,6 @@ def index(request):
     model_data = {}
     
     if request.method == 'POST':
-        print(request.POST)
         formset = InputFormset(data = request.POST)
         if  formset.is_valid():
             for key, value in formset.data.items():
@@ -20,7 +19,7 @@ def index(request):
             formset_model.save()
             return redirect('/')
         else:
-            print(formset.non_form_errors())
+            print('There is an error:', formset.non_form_errors())
   
     formset = InputFormset()
         

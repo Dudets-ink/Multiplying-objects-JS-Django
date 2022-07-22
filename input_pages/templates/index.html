@@ -5,25 +5,28 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <script type="text/javascript" src="{% static 'index.js' %}"></script>
 
-    <h1 align='center'>Welcome to Input Clicker!</h1>
+    <h1 align='center' >Welcome to Input Clicker!</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ formset.management_form }}
-        <div id="input-form">
-            {% for input_form in formset%}
-                <div class="input-class">
-                    <p class='input-class' > {{ input_form.as_p }}</p>
+    <div class='mt-5 container text-center' style='width:40%'>
+        <div class='jumbotron'>
+            <form method="POST" class="form" style='width:auto'>
+                {% csrf_token %}
+                {{ formset.management_form }}
+                <div id="input-form">
+                    {% for input_form in formset%}
+                        <div class="input-class">
+                            <p class='input-class' > {{ input_form.as_p }}</p>
+                         </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+                    <hr>
+                    <button type="submit" name="input" class='btn btn-primary' style='margin-right:5px'>Input</input>
+                    <button type="button" id="buttonAddForm"  class='btn btn-secondary ml-4'>Add a new field</button>
+                    <button type="button" id="buttonDelForm" class='btn btn-secondary'>Delete a field</button>
+                    <a href='{% url "saved_text" %}' class='btn btn-primary '>Show all entry's</a>
+            </form>
         </div>
-
-            <hr>
-            <button type="submit" name="input">Input</input>
-            <button type="button" id="buttonAddForm" >Add a new field</button>
-            <button type="button" id="buttonDelForm">Delete a field</button>
-            <a href='{% url "saved_text" %}'>Show all entry's</a>
-        </form>
+    </div>
 
     <div id='empty-input' class='hidden'>{{formset.empty_form}}</div>
 
