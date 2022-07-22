@@ -1,12 +1,10 @@
 from django.shortcuts import get_object_or_404, render, redirect
-import json
 from .forms import InputFormset
 from .models import DataModel
-# Create your views here.
+
 
 def index(request):
-    """"""
-
+    """Renders index.html page, handles POST method to save inputted data."""
     model_data = {}
     
     if request.method == 'POST':
@@ -28,13 +26,11 @@ def index(request):
     return render(request, 'index.html', context)
 
 def saved_text(request):
-    """"""
-    
-    database = DataModel.objects.all()
-
-
+    """Renders data-page.html page. Returns text form db in context."""
+    database = DataModel.objects.all() 
     number = 0
     entries = {}
+    
     for table in database:
         number += 1
         entries[str(number)] = []

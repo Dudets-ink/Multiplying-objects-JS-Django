@@ -1,6 +1,4 @@
-/*
-
-*/
+/* Dynamically adds a form to a page. */
 function addForm(){
     const button = document.getElementById('buttonAddForm');
 
@@ -17,9 +15,7 @@ function addForm(){
     });
 };
 
-/*
-
-*/
+/* Dynamically remove a form from a page*/
 function deleteForm(){
     const button = document.getElementById('buttonDelForm');
 

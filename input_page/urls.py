@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('input_pages.urls')), # включает адреса из input_pages
+    path('', include('input_pages.urls')),
 ]

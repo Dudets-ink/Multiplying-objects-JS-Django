@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # bootstrap
     'bootstrap5',
     
-    # приложения django
+    # apps django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

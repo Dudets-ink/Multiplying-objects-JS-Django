@@ -1,3 +1,5 @@
+<!-- Page displays information from entries. -->
+
 {% extends 'base.html'%}
 
 {% block content%}
@@ -6,18 +8,22 @@
 
     <div class='d-flex justify-content-center'>
         <div style='width:40%'>
-        {% for number, value in  entries.items %}
-            <div class='card text-center mb-3' >
-                <div class='card-header'>
-                    <h5 >Entry №{{number}}</h5>
-                </div>
-                <div class='card-body'>
-                    {% for note in value %}
-                        <p >{{note}}</p>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endfor %}  
+            {% if entries.items %}
+                {% for number, value in  entries.items %}
+                    <div class='card text-center mb-3' >
+                        <div class='card-header'>
+                            <h5 >Entry №{{number}}</h5>
+                        </div>
+                        <div class='card-body'>
+                            {% for note in value %}
+                                <p >{{note}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}  
+            {% else %}
+                <h2 align='center'> There is no content, create it on the main page. </h2>
+            {% endif %}
         </div>
     </div>
 
